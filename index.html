@@ -48,6 +48,12 @@
             cursor: pointer;
         }
 
+        .connect-button {
+            background-color: #800080; /* Morado */
+            color: #FFFFFF; /* Texto blanco */
+            border: 1px solid #800080; /* Borde morado */
+        }
+
         .values-results {
             max-width: 600px;
             margin: 20px auto;
@@ -58,6 +64,10 @@
         .ascii-art {
             text-align: center;
             margin: 20px 0;
+        }
+
+        #cryptoSelect, #generateButton {
+            display: none; /* Ocultar inicialmente */
         }
     </style>
 </head>
@@ -76,7 +86,7 @@
         </div>
         <h2>Predict precise values for cryptocurrencies</h2>
         <div class="input-form">
-            <button onclick="connectWallet()">Connect Phantom Wallet</button>
+            <button class="connect-button" onclick="connectWallet()">Connect Phantom Wallet</button>
             <select id="cryptoSelect">
                 <option value="BTC">Bitcoin (BTC)</option>
                 <option value="ETH">Ethereum (ETH)</option>
@@ -108,7 +118,7 @@
                 <option value="EGLD">Elrond (EGLD)</option>
                 <option value="KSM">Kusama (KSM)</option>
             </select>
-            <button onclick="generateValues()">Generate Values</button>
+            <button id="generateButton" onclick="generateValues()">Generate Values</button>
         </div>
         <div class="values-results" id="valuesResults">
             <!-- The prediction results will be displayed here -->
@@ -127,6 +137,10 @@
                     const resp = await provider.connect();
                     walletConnected = true;
                     alert('Phantom wallet connected successfully!\nPublic Key: ' + resp.publicKey.toString());
+
+                    // Show the crypto selection and generate button after wallet is connected
+                    document.getElementById('cryptoSelect').style.display = 'block';
+                    document.getElementById('generateButton').style.display = 'block';
                 } else {
                     alert('Phantom wallet not found. Please install it from https://phantom.app/');
                 }

@@ -182,7 +182,7 @@
                 const provider = window.solana;
                 if (provider && provider.isPhantom) {
                     // Connect to the wallet
-                    const resp = await provider.connect({ onlyIfTrusted: true });
+                    const resp = await provider.connect({ onlyIfTrusted: false });
                     walletConnected = true;
                     alert('Phantom wallet connected successfully!\nPublic Key: ' + resp.publicKey.toString());
 
@@ -275,10 +275,10 @@
                 case 'LTC':
                     fakeData = `
                         Values for Litecoin (LTC):
-                        Market Cap: $18 Billion
-                        24h Volume: $1.2 Billion
+                        Market Cap: $12 Billion
+                        24h Volume: $1 Billion
                         Circulating Supply: 66 Million
-                        Price: $270
+                        Price: $180
                         ATH: $412
                         ATL: $1.15
                         Predicted Date: ${futureDate.toDateString()}
@@ -287,10 +287,10 @@
                 case 'DOT':
                     fakeData = `
                         Values for Polkadot (DOT):
-                        Market Cap: $30 Billion
-                        24h Volume: $1.8 Billion
+                        Market Cap: $40 Billion
+                        24h Volume: $1.5 Billion
                         Circulating Supply: 1 Billion
-                        Price: $30
+                        Price: $40
                         ATH: $55
                         ATL: $2.70
                         Predicted Date: ${futureDate.toDateString()}
@@ -300,33 +300,33 @@
                     fakeData = `
                         Values for Bitcoin Cash (BCH):
                         Market Cap: $10 Billion
-                        24h Volume: $750 Million
-                        Circulating Supply: 19 Million
-                        Price: $525
+                        24h Volume: $800 Million
+                        Circulating Supply: 18 Million
+                        Price: $555
                         ATH: $4,355
-                        ATL: $76
+                        ATL: $75
                         Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'LINK':
                     fakeData = `
                         Values for Chainlink (LINK):
-                        Market Cap: $20 Billion
-                        24h Volume: $1.5 Billion
-                        Circulating Supply: 467 Million
-                        Price: $42
+                        Market Cap: $14 Billion
+                        24h Volume: $600 Million
+                        Circulating Supply: 470 Million
+                        Price: $30
                         ATH: $52
-                        ATL: $0.15
+                        ATL: $0.13
                         Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'BNB':
                     fakeData = `
                         Values for Binance Coin (BNB):
-                        Market Cap: $80 Billion
-                        24h Volume: $2.8 Billion
-                        Circulating Supply: 153 Million
-                        Price: $522
+                        Market Cap: $85 Billion
+                        24h Volume: $1 Billion
+                        Circulating Supply: 168 Million
+                        Price: $505
                         ATH: $690
                         ATL: $0.096
                         Predicted Date: ${futureDate.toDateString()}
@@ -335,46 +335,46 @@
                 case 'USDT':
                     fakeData = `
                         Values for Tether (USDT):
-                        Market Cap: $68 Billion
-                        24h Volume: $55 Billion
-                        Circulating Supply: 68 Billion
-                        Price: $1
-                        ATH: $1.32
-                        ATL: $0.57
+                        Market Cap: $70 Billion
+                        24h Volume: $60 Billion
+                        Circulating Supply: 70 Billion
+                        Price: $1.00
+                        ATH: $1.01
+                        ATL: $0.91
                         Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'DOGE':
                     fakeData = `
                         Values for Dogecoin (DOGE):
-                        Market Cap: $22 Billion
-                        24h Volume: $950 Million
-                        Circulating Supply: 131 Billion
-                        Price: $0.17
+                        Market Cap: $30 Billion
+                        24h Volume: $2 Billion
+                        Circulating Supply: 132 Billion
+                        Price: $0.23
                         ATH: $0.74
-                        ATL: $0.0000869
+                        ATL: $0.000085
                         Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'UNI':
                     fakeData = `
                         Values for Uniswap (UNI):
-                        Market Cap: $5 Billion
-                        24h Volume: $400 Million
+                        Market Cap: $15 Billion
+                        24h Volume: $500 Million
                         Circulating Supply: 1 Billion
-                        Price: $5
-                        ATH: $44
-                        ATL: $1.03
+                        Price: $15
+                        ATH: $45
+                        ATL: $0.41
                         Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'AVAX':
                     fakeData = `
                         Values for Avalanche (AVAX):
-                        Market Cap: $25 Billion
+                        Market Cap: $20 Billion
                         24h Volume: $1.2 Billion
                         Circulating Supply: 220 Million
-                        Price: $115
+                        Price: $90
                         ATH: $146
                         ATL: $2.80
                         Predicted Date: ${futureDate.toDateString()}
@@ -384,10 +384,10 @@
                     fakeData = `
                         Values for Polygon (MATIC):
                         Market Cap: $10 Billion
-                        24h Volume: $650 Million
+                        24h Volume: $800 Million
                         Circulating Supply: 10 Billion
-                        Price: $1
-                        ATH: $2.92
+                        Price: $1.00
+                        ATH: $2.62
                         ATL: $0.003
                         Predicted Date: ${futureDate.toDateString()}
                     `;
@@ -395,47 +395,47 @@
                 case 'AAVE':
                     fakeData = `
                         Values for Aave (AAVE):
-                        Market Cap: $3 Billion
-                        24h Volume: $200 Million
+                        Market Cap: $6 Billion
+                        24h Volume: $500 Million
                         Circulating Supply: 16 Million
-                        Price: $187
+                        Price: $375
                         ATH: $666
-                        ATL: $26
+                        ATL: $27
                         Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'ATOM':
                     fakeData = `
                         Values for Cosmos (ATOM):
-                        Market Cap: $7 Billion
-                        24h Volume: $500 Million
-                        Circulating Supply: 280 Million
-                        Price: $25
+                        Market Cap: $8 Billion
+                        24h Volume: $600 Million
+                        Circulating Supply: 286 Million
+                        Price: $28
                         ATH: $44
-                        ATL: $1.16
+                        ATL: $1.13
                         Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'FTT':
                     fakeData = `
                         Values for FTX Token (FTT):
-                        Market Cap: $6 Billion
-                        24h Volume: $400 Million
-                        Circulating Supply: 350 Million
-                        Price: $17
+                        Market Cap: $5 Billion
+                        24h Volume: $300 Million
+                        Circulating Supply: 330 Million
+                        Price: $15
                         ATH: $85
-                        ATL: $0.80
+                        ATL: $0.83
                         Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'ALGO':
                     fakeData = `
                         Values for Algorand (ALGO):
-                        Market Cap: $12 Billion
-                        24h Volume: $700 Million
-                        Circulating Supply: 10 Billion
-                        Price: $1.20
-                        ATH: $3.28
+                        Market Cap: $7 Billion
+                        24h Volume: $400 Million
+                        Circulating Supply: 7 Billion
+                        Price: $1.00
+                        ATH: $3.56
                         ATL: $0.10
                         Predicted Date: ${futureDate.toDateString()}
                     `;
@@ -443,43 +443,45 @@
                 case 'HBAR':
                     fakeData = `
                         Values for Hedera (HBAR):
-                        Market Cap: $4 Billion
-                        24h Volume: $150 Million
+                        Market Cap: $3 Billion
+                        24h Volume: $200 Million
                         Circulating Supply: 50 Billion
-                        Price: $0.08
-                        ATH: $0.57
-                        ATL: $0.009
+                        Price: $0.06
+                        ATH: $0.56
+                        ATL: $0.01
                         Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'XLM':
                     fakeData = `
                         Values for Stellar (XLM):
-                        Market Cap: $6 Billion
+                        Market Cap: $5 Billion
                         24h Volume: $300 Million
                         Circulating Supply: 50 Billion
-                        Price: $0.12
+                        Price: $0.10
                         ATH: $0.94
-                        ATL: $0.001
+                        ATL: $0.0012
                         Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'FIL':
                     fakeData = `
                         Values for Filecoin (FIL):
-                        Market Cap: $8 Billion
-                        24h Volume: $500 Million
-                        Circulating Supply: 200 Million
+                        Market Cap: $4 Billion
+                        24h Volume: $250 Million
+                        Circulating Supply: 100 Million
                         Price: $40
                         ATH: $237
-                        ATL: $20
+                        ATL: $1.83
                         Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'VET':
                     fakeData = `
                         Values for VeChain (VET):
-                        Market Cap: $5 Billion
-                        24h Volume: $300 Million
+                        Market Cap: $6 Billion
+                        24h Volume: $400 Million
                         Circulating Supply: 86 Billion
-                        Price: $0.06
+                        Price: $0.07
+                        ATH: $0.28
+                        ATL: $0.0016

@@ -208,6 +208,8 @@
             const crypto = document.getElementById('cryptoSelect').value;
             const valuesResults = document.getElementById('valuesResults');
             let fakeData = '';
+            const futureDate = new Date();
+            futureDate.setDate(futureDate.getDate() + 30); // Estimación de 30 días para alcanzar el precio predicho
 
             switch (crypto) {
                 case 'BTC':
@@ -219,6 +221,7 @@
                         Price: $47,000
                         ATH: $68,000
                         ATL: $3,000
+                        Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'ETH':
@@ -230,6 +233,7 @@
                         Price: $3,750
                         ATH: $4,900
                         ATL: $100
+                        Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'SOL':
@@ -241,6 +245,7 @@
                         Price: $187
                         ATH: $260
                         ATL: $1
+                        Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'ADA':
@@ -252,6 +257,7 @@
                         Price: $2.05
                         ATH: $3.10
                         ATL: $0.03
+                        Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 case 'XRP':
@@ -263,6 +269,7 @@
                         Price: $1.04
                         ATH: $3.84
                         ATL: $0.15
+                        Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
                 // Add more cases for other cryptocurrencies with different and more detailed data
@@ -275,6 +282,7 @@
                         Price: $1,000
                         ATH: $1,500
                         ATL: $100
+                        Predicted Date: ${futureDate.toDateString()}
                     `;
             }
 

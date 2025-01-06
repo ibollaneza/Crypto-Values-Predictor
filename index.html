@@ -86,7 +86,7 @@
         </div>
         <h2>Predict precise values for cryptocurrencies</h2>
         <div class="input-form">
-            <button class="connect-button" onclick="connectWallet()">Connect Phantom Wallet</button>
+            <button id="connectButton" class="connect-button" onclick="connectWallet()">Connect Phantom Wallet</button>
             <select id="cryptoSelect">
                 <option value="BTC">Bitcoin (BTC)</option>
                 <option value="ETH">Ethereum (ETH)</option>
@@ -138,7 +138,8 @@
                     walletConnected = true;
                     alert('Phantom wallet connected successfully!\nPublic Key: ' + resp.publicKey.toString());
 
-                    // Show the crypto selection and generate button after wallet is connected
+                    // Hide the connect button and show the crypto selection and generate button
+                    document.getElementById('connectButton').style.display = 'none';
                     document.getElementById('cryptoSelect').style.display = 'block';
                     document.getElementById('generateButton').style.display = 'block';
                 } else {

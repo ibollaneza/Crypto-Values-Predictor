@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Values Predictor - AI</title>
+    <style>
+        @font-face {
+            font-family: 'HackerFont';
+            src: url('https://fonts.cdnfonts.com/s/11859/Hack-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'HackerFont', monospace;
+            background-color: #000000;
+            color: #00FF00;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .input-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .input-form input, .input-form select, .input-form button {
+            font-family: 'HackerFont', monospace;
+            background-color: #1a1a1a;
+            color: #00FF00;
+            border: 1px solid #00FF00;
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+        }
+
+        .input-form button {
+            cursor: pointer;
+        }
+
+        .values-results {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #00FF00;
+        }
+
+        .ascii-art {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crypto Values Predictor - AI</h1>
+        <div class="ascii-art">
+            <pre>
+    ____                  _        ____            _       _             
+   / ___| _ __ ___   __ _(_)_ __  |  _ \ _ __ ___ (_) __ _| |_ ___  _ __  
+   \___ \| '_ ` _ \ / _` | | '_ \ | |_) | '__/ _ \| |/ _` | __/ _ \| '_ \ 
+    ___) | | | | | | (_| | | | | ||  __/| | | (_) | | (_| | || (_) | | | |
+   |____/|_| |_| |_|\__,_|_|_| |_||_|   |_|  \___// |\__,_|\__\___/|_| |_|
+                                               |__/                       
+            </pre>
+        </div>
+        <h2>Predict precise values for cryptocurrencies</h2>
+        <div class="input-form">
+            <button onclick="connectWallet()">Connect Phantom Wallet</button>
+            <select id="cryptoSelect">
+                <option value="BTC">Bitcoin (BTC)</option>
+                <option value="ETH">Ethereum (ETH)</option>
+                <option value="SOL">Solana (SOL)</option>
+                <option value="ADA">Cardano (ADA)</option>
+                <option value="XRP">Ripple (XRP)</option>
+                <option value="LTC">Litecoin (LTC)</option>
+                <option value="DOT">Polkadot (DOT)</option>
+                <option value="BCH">Bitcoin Cash (BCH)</option>
+                <option value="LINK">Chainlink (LINK)</option>
+                <option value="BNB">Binance Coin (BNB)</option>
+                <option value="USDT">Tether (USDT)</option>
+                <option value="DOGE">Dogecoin (DOGE)</option>
+                <option value="UNI">Uniswap (UNI)</option>
+                <option value="AVAX">Avalanche (AVAX)</option>
+                <option value="MATIC">Polygon (MATIC)</option>
+                <option value="AAVE">Aave (AAVE)</option>
+                <option value="ATOM">Cosmos (ATOM)</option>
+                <option value="FTT">FTX Token (FTT)</option>
+                <option value="ALGO">Algorand (ALGO)</option>
+                <option value="HBAR">Hedera (HBAR)</option>
+                <option value="XLM">Stellar (XLM)</option>
+                <option value="FIL">Filecoin (FIL)</option>
+                <option value="VET">VeChain (VET)</option>
+                <option value="ICP">Internet Computer (ICP)</option>
+                <option value="CAKE">PancakeSwap (CAKE)</option>
+                <option value="THETA">Theta (THETA)</option>
+                <option value="XTZ">Tezos (XTZ)</option>
+                <option value="EGLD">Elrond (EGLD)</option>
+                <option value="KSM">Kusama (KSM)</option>
+            </select>
+            <button onclick="generateValues()">Generate Values</button>
+        </div>
+        <div class="values-results" id="valuesResults">
+            <!-- The prediction results will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        let walletConnected = false;
+
+        async function connectWallet() {
+            try {
+                // Check if Phantom Wallet is installed
+                const provider = window.solana;
+                if (provider?.isPhantom) {
+                    // Connect to the wallet
+                    const resp = await provider.connect();
+                    walletConnected = true;
+                    alert('Phantom wallet connected successfully!\nPublic Key: ' + resp.publicKey.toString());
+                } else {
+                    alert('Phantom wallet not found. Please install it from https://phantom.app/');
+                }
+            } catch (err) {
+                console.error('Failed to connect to Phantom wallet:', err);
+                alert('Failed to connect to Phantom wallet. Please try again.');
+            }
+        }
+
+        function generateValues() {
+            if (!walletConnected) {
+                alert('Please connect your Phantom wallet first.');
+                return;
+            }
+
+            const crypto = document.getElementById('cryptoSelect').value;
+            const valuesResults = document.getElementById('valuesResults');
+            let fakeData = '';
+
+            switch (crypto) {
+                case 'BTC':
+                    fakeData = `
+                        Values for Bitcoin (BTC):
+                        Market Cap: $800 Billion
+                        24h Volume: $25 Billion
+                        Circulating Supply: 18.7 Million
+                        Price: $42,000
+                        ATH: $64,000
+                        ATL: $3,200
+                    `;
+                    break;
+                case 'ETH':
+                    fakeData = `
+                        Values for Ethereum (ETH):
+                        Market Cap: $400 Billion
+                        24h Volume: $15 Billion
+                        Circulating Supply: 114 Million
+                        Price: $3,500
+                        ATH: $4,800
+                        ATL: $80
+                    `;
+                    break;
+                case 'SOL':
+                    fakeData = `
+                        Values for Solana (SOL):
+                        Market Cap: $50 Billion
+                        24h Volume: $2 Billion
+                        Circulating Supply: 300 Million
+                        Price: $150
+                        ATH: $260
+                        ATL: $0.50
+                    `;
+                    break;
+                case 'ADA':
+                    fakeData = `
+                        Values for Cardano (ADA):
+                        Market Cap: $60 Billion
+                        24h Volume: $1.5 Billion
+                        Circulating Supply: 32 Billion
+                        Price: $1.80
+                        ATH: $3.10
+                        ATL: $0.02
+                    `;
+                    break;
+                case 'XRP':
+                    fakeData = `
+                        Values for Ripple (XRP):
+                        Market Cap: $40 Billion
+                        24h Volume: $1 Billion
+                        Circulating Supply: 45 Billion
+                        Price: $0.90
+                        ATH: $3.84
+                        ATL: $0.002
+                    `;
+                    break;
+                // Add more cases for other cryptocurrencies with different and more detailed data
+                default:
+                    fakeData = `
+                        Values for ${crypto}:
+                        Market Cap: $200 Billion
+                        24h Volume: $10 Billion
+                        Circulating Supply: 18.5 Million
+                        Price: $1,000
+                        ATH: $1,500
+                        ATL: $100
+                    `;
+            }
+
+            valuesResults.innerText = fakeData;
+        }
+    </script>
+</body>
+</html>

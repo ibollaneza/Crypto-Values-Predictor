@@ -180,9 +180,9 @@
             try {
                 // Check if Phantom Wallet is installed
                 const provider = window.solana;
-                if (provider && provider.isPhantom) {
+                if (provider?.isPhantom) {
                     // Connect to the wallet
-                    const resp = await provider.connect({ onlyIfTrusted: false });
+                    const resp = await provider.connect();
                     walletConnected = true;
                     alert('Phantom wallet connected successfully!\nPublic Key: ' + resp.publicKey.toString());
 
@@ -272,217 +272,22 @@
                         Predicted Date: ${futureDate.toDateString()}
                     `;
                     break;
-                case 'LTC':
+                // Add more cases for other cryptocurrencies with different and more detailed data
+                default:
                     fakeData = `
-                        Values for Litecoin (LTC):
-                        Market Cap: $12 Billion
-                        24h Volume: $1.5 Billion
-                        Circulating Supply: 84 Million
-                        Price: $140
-                        ATH: $410
-                        ATL: $1.11
+                        Values for ${crypto}:
+                        Market Cap: $200 Billion
+                        24h Volume: $10 Billion
+                        Circulating Supply: 18.5 Million
+                        Price: $1,000
+                        ATH: $1,500
+                        ATL: $100
                         Predicted Date: ${futureDate.toDateString()}
                     `;
-                    break;
-                case 'DOT':
-                    fakeData = `
-                        Values for Polkadot (DOT):
-                        Market Cap: $25 Billion
-                        24h Volume: $1 Billion
-                        Circulating Supply: 1 Billion
-                        Price: $25
-                        ATH: $55
-                        ATL: $2.70
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'BCH':
-                    fakeData = `
-                        Values for Bitcoin Cash (BCH):
-                        Market Cap: $10 Billion
-                        24h Volume: $800 Million
-                        Circulating Supply: 18 Million
-                        Price: $550
-                        ATH: $4,355
-                        ATL: $75
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'LINK':
-                    fakeData = `
-                        Values for Chainlink (LINK):
-                        Market Cap: $8 Billion
-                        24h Volume: $1 Billion
-                        Circulating Supply: 1 Billion
-                        Price: $8
-                        ATH: $52
-                        ATL: $0.15
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'BNB':
-                    fakeData = `
-                        Values for Binance Coin (BNB):
-                        Market Cap: $80 Billion
-                        24h Volume: $2 Billion
-                        Circulating Supply: 170 Million
-                        Price: $470
-                        ATH: $690
-                        ATL: $0.096
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'USDT':
-                    fakeData = `
-                        Values for Tether (USDT):
-                        Market Cap: $68 Billion
-                        24h Volume: $45 Billion
-                        Circulating Supply: 68 Billion
-                        Price: $1
-                        ATH: $1.03
-                        ATL: $0.57
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'DOGE':
-                    fakeData = `
-                        Values for Dogecoin (DOGE):
-                        Market Cap: $20 Billion
-                        24h Volume: $2 Billion
-                        Circulating Supply: 130 Billion
-                        Price: $0.15
-                        ATH: $0.74
-                        ATL: $0.0000869
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'UNI':
-                    fakeData = `
-                        Values for Uniswap (UNI):
-                        Market Cap: $10 Billion
-                        24h Volume: $500 Million
-                        Circulating Supply: 1 Billion
-                        Price: $10
-                        ATH: $44
-                        ATL: $1.03
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'AVAX':
-                    fakeData = `
-                        Values for Avalanche (AVAX):
-                        Market Cap: $15 Billion
-                        24h Volume: $1 Billion
-                        Circulating Supply: 395 Million
-                        Price: $38
-                        ATH: $146
-                        ATL: $2.80
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'MATIC':
-                    fakeData = `
-                        Values for Polygon (MATIC):
-                        Market Cap: $12 Billion
-                        24h Volume: $800 Million
-                        Circulating Supply: 10 Billion
-                        Price: $1.20
-                        ATH: $2.92
-                        ATL: $0.003
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'AAVE':
-                    fakeData = `
-                        Values for Aave (AAVE):
-                        Market Cap: $4 Billion
-                        24h Volume: $300 Million
-                        Circulating Supply: 16 Million
-                        Price: $250
-                        ATH: $666
-                        ATL: $26
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'ATOM':
-                    fakeData = `
-                        Values for Cosmos (ATOM):
-                        Market Cap: $8 Billion
-                        24h Volume: $500 Million
-                        Circulating Supply: 286 Million
-                        Price: $28
-                        ATH: $44
-                        ATL: $1.16
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'FTT':
-                    fakeData = `
-                        Values for FTX Token (FTT):
-                        Market Cap: $6 Billion
-                        24h Volume: $300 Million
-                        Circulating Supply: 345 Million
-                        Price: $17
-                        ATH: $84
-                        ATL: $0.80
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'ALGO':
-                    fakeData = `
-                        Values for Algorand (ALGO):
-                        Market Cap: $5 Billion
-                        24h Volume: $200 Million
-                        Circulating Supply: 10 Billion
-                        Price: $0.50
-                        ATH: $3.28
-                        ATL: $0.10
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'HBAR':
-                    fakeData = `
-                        Values for Hedera (HBAR):
-                        Market Cap: $4 Billion
-                        24h Volume: $100 Million
-                        Circulating Supply: 50 Billion
-                        Price: $0.08
-                        ATH: $0.56
-                        ATL: $0.01
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'XLM':
-                    fakeData = `
-                        Values for Stellar (XLM):
-                        Market Cap: $6 Billion
-                        24h Volume: $300 Million
-                        Circulating Supply: 50 Billion
-                        Price: $0.12
-                        ATH: $0.94
-                        ATL: $0.001
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'FIL':
-                    fakeData = `
-                        Values for Filecoin (FIL):
-                        Market Cap: $3 Billion
-                        24h Volume: $200 Million
-                        Circulating Supply: 200 Million
-                        Price: $15
-                        ATH: $237
-                        ATL: $1.80
-                        Predicted Date: ${futureDate.toDateString()}
-                    `;
-                    break;
-                case 'VET':
-                    fakeData = `
-                        Values for VeChain (VET):
-                        Market Cap: $5 Billion
-                        24h Volume: $300 Million
-                        Circulating Supply: 86 Billion
-                        Price: $0.06
-                        ATH: $0.28
-                        ATL: $0.001
-                        Predicted Date: ${futureDate.toDateString()}
+            }
+
+            valuesResults.innerText = fakeData;
+        }
+    </script>
+</body>
+</html>

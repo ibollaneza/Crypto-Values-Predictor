@@ -21,12 +21,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             text-align: center;
         }
 
         .container {
             padding: 20px;
+            max-width: 800px;
         }
 
         .header {
@@ -94,6 +95,13 @@
         #cryptoSelect, #generateButton {
             display: none; /* Ocultar inicialmente */
         }
+
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #00FF00;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -149,8 +157,19 @@
         <div class="values-results" id="valuesResults">
             <!-- The prediction results will be displayed here -->
         </div>
-        <div class="prediction-explanation" id="predictionExplanation">
-            <!-- The prediction explanation will be displayed here -->
+        <div class="explanation">
+            <h3>How We Make Predictions:</h3>
+            <p>Our AI-based prediction model leverages advanced machine learning techniques and a variety of data sources to provide accurate cryptocurrency value predictions. Here is an overview of the process:</p>
+            <ul>
+                <li><strong>Data Collection:</strong> We gather historical price data, trading volumes, and market sentiment from multiple reputable sources.</li>
+                <li><strong>Machine Learning Models:</strong> We use a combination of LSTM neural networks and ARIMA time series analysis to forecast future price movements.</li>
+                <li><strong>Sentiment Analysis:</strong> Our model incorporates sentiment analysis of social media and news articles to gauge market sentiment and its potential impact on cryptocurrency prices.</li>
+                <li><strong>Technical Analysis:</strong> We employ various technical indicators such as Moving Averages, RSI, and MACD to identify trends and potential price reversals.</li>
+                <li><strong>Blockchain Activity Monitoring:</strong> For certain cryptocurrencies, we monitor blockchain activity, including the number of active addresses, transaction volumes, and DeFi activity.</li>
+                <li><strong>High-Frequency Trading Algorithms:</strong> For short-term predictions, we use high-frequency trading algorithms that analyze order book data and trading volumes.</li>
+                <li><strong>Regulatory Developments:</strong> For cryptocurrencies like Ripple, we consider regulatory developments and their potential impact on prices.</li>
+            </ul>
+            <p>By combining these techniques, we aim to provide the most accurate and reliable cryptocurrency value predictions available.</p>
         </div>
     </div>
 
@@ -188,9 +207,7 @@
 
             const crypto = document.getElementById('cryptoSelect').value;
             const valuesResults = document.getElementById('valuesResults');
-            const predictionExplanation = document.getElementById('predictionExplanation');
             let fakeData = '';
-            let explanation = '';
 
             switch (crypto) {
                 case 'BTC':
@@ -203,11 +220,6 @@
                         ATH: $68,000
                         ATL: $3,000
                     `;
-                    explanation = `
-                        The prediction for Bitcoin is based on advanced machine learning models that take into account historical price data, trading volumes, and market sentiment. 
-                        The model uses a combination of LSTM neural networks and ARIMA time series analysis to forecast future price movements. 
-                        Additionally, sentiment analysis of social media and news articles is incorporated to gauge market sentiment and its potential impact on Bitcoin's price.
-                    `;
                     break;
                 case 'ETH':
                     fakeData = `
@@ -218,11 +230,6 @@
                         Price: $3,750
                         ATH: $4,900
                         ATL: $100
-                    `;
-                    explanation = `
-                        The Ethereum prediction leverages a hybrid model that includes both technical analysis and blockchain activity monitoring. 
-                        The technical analysis component employs indicators like Moving Averages, RSI, and MACD to identify trends and potential price reversals. 
-                        Blockchain activity monitoring tracks the number of active addresses, transaction volumes, and DeFi activity on the Ethereum network to predict future price movements.
                     `;
                     break;
                 case 'SOL':
@@ -235,11 +242,6 @@
                         ATH: $260
                         ATL: $1
                     `;
-                    explanation = `
-                        Solana's prediction model integrates high-frequency trading algorithms with blockchain performance metrics. 
-                        The high-frequency trading algorithms analyze order book data and trading volumes to predict short-term price fluctuations. 
-                        Blockchain performance metrics include the number of transactions per second, network uptime, and ecosystem growth, which are critical in predicting long-term price trends for Solana.
-                    `;
                     break;
                 case 'ADA':
                     fakeData = `
@@ -251,11 +253,6 @@
                         ATH: $3.10
                         ATL: $0.03
                     `;
-                    explanation = `
-                        Cardano's price prediction uses a multi-faceted approach combining fundamental analysis and market sentiment. 
-                        Fundamental analysis evaluates the progress of Cardano's development roadmap, partnerships, and adoption rates. 
-                        Market sentiment analysis uses natural language processing (NLP) to analyze discussions and opinions on social media platforms, forums, and news outlets.
-                    `;
                     break;
                 case 'XRP':
                     fakeData = `
@@ -266,11 +263,6 @@
                         Price: $1.04
                         ATH: $3.84
                         ATL: $0.15
-                    `;
-                    explanation = `
-                        Ripple's prediction model focuses on regulatory developments and cross-border transaction volumes. 
-                        The model incorporates a sentiment analysis component to assess the impact of legal news and regulatory announcements on XRP's price. 
-                        Additionally, it monitors the volume of cross-border transactions facilitated by RippleNet to gauge adoption and usage trends.
                     `;
                     break;
                 // Add more cases for other cryptocurrencies with different and more detailed data
@@ -284,14 +276,9 @@
                         ATH: $1,500
                         ATL: $100
                     `;
-                    explanation = `
-                        The prediction model for this cryptocurrency uses a combination of historical data analysis, machine learning algorithms, and sentiment analysis. 
-                        It incorporates various technical indicators and on-chain metrics to provide an accurate forecast of future price movements.
-                    `;
             }
 
             valuesResults.innerText = fakeData;
-            predictionExplanation.innerText = explanation;
         }
     </script>
 </body>
